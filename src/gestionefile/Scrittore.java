@@ -1,6 +1,10 @@
 package gestionefile;
 
 import java.io.BufferedWriter;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -36,6 +40,19 @@ public class Scrittore implements Runnable, AutoCloseable {
         } catch (IOException ex) {
             Logger.getLogger(Scrittore.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        // Issue numero 3
+        try (DataInputStream rd = new DataInputStream(new FileInputStream("user.json")); DataOutputStream wr = new DataOutputStream(new FileOutputStream("user.csv"))) {
+            int bytesRead;
+            byte[] buffer = new byte[1024];
+
+            while ((bytesRead = rd.read(buffer)) != -1) {
+                wr.write(buffer, 0, bytesRead);
+            }
+        } catch(IOException e){
+            System.err.println("Errore durante la copiatura del file");
+        }
+        
     }
 
     @Override
