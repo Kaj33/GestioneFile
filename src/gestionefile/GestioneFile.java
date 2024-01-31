@@ -2,9 +2,10 @@ package gestionefile;
 
 /**
  *
- * @author MC
- * @version 12/01/23
+ * @author KT
+ * @version 31/01/2024
  */
+
 public class GestioneFile {
 
     /**
@@ -13,7 +14,8 @@ public class GestioneFile {
     public static void main(String[] args) {
         
         //1)LETTURA
-        Lettore lettore = new Lettore("user.json");
+        Lettore lettore;
+        lettore = new Lettore("user.json");
         lettore.start();
         //2)ELABORAZIONE
         
