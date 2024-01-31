@@ -25,9 +25,7 @@ public class Scrittore implements Runnable, AutoCloseable {
         scrivi();
     }
 
-    /**
-     * Scrive un file di testo usando la classe BufferedWriter
-     */
+    //Scrive un file di testo usando la classe BufferedWriter
     public void scrivi() {
         try (BufferedWriter br = new BufferedWriter(new FileWriter(nomeFile))) {
             // 2) scrivo nel buffer
@@ -42,7 +40,7 @@ public class Scrittore implements Runnable, AutoCloseable {
 
     @Override
     public void close() throws IOException {
-        // Non è più necessario gestire la chiusura qui, grazie a try-with-resources
+        // Qui non serve più la chiusura perchè viene tutto gestito dal try-with-resources
     }
 }
 
