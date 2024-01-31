@@ -7,6 +7,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+
+/**
+ *
+ * @author KT
+ * @version 31/01/2024
+ */
+
 public class Main {
 
     public static void main(String[] args) {
@@ -17,7 +24,6 @@ public class Main {
             br.close();
 
             // Estrai le informazioni necessarie dall'JSON
-            // Esempio: {"id":1, "name":"name", "surname":"surname", "role":"role"}
             String id = jsonContent.split("\"id\":")[1].split(",")[0].trim();
             String name = jsonContent.split("\"name\":")[1].split(",")[0].replaceAll("\"", "").trim();
             String surname = jsonContent.split("\"surname\":")[1].split(",")[0].replaceAll("\"", "").trim();
@@ -31,7 +37,7 @@ public class Main {
             String password = scanner.nextLine();
 
             // Cifra la password usando il cifrario di Vigénere (puoi implementare la tua funzione)
-            String encryptedPassword = vigenereEncrypt(password, "chiave");
+            String encryptedPassword = vigenereEncrypt (password, "chiave");
 
             // Scrivi nel file output.csv
             BufferedWriter bw = new BufferedWriter(new FileWriter("output.csv"));
@@ -58,7 +64,7 @@ public class Main {
         }
     }
 
-    // Funzione di cifratura di Vigénere (esempio di implementazione)
+    // Funzione di cifratura di Vigénere 
     private static String vigenereEncrypt(String text, String key) {
         StringBuilder encryptedText = new StringBuilder();
         int textLength = text.length();
